@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Producto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">busqueda</a> &gt; <a href="index.source.html" class="el_package">com.example.model</a> &gt; <span class="el_source">Producto.java</span></div><h1>Producto.java</h1><pre class="source lang-java linenums">package com.example.model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name = &quot;productos&quot;)
+public class Producto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id_producto&quot;)
+    private Long idProducto;
+
+    @Column(name = &quot;nombre&quot;, nullable = false)
+    @NotBlank(message = &quot;El nombre no puede estar vacío&quot;)
+    @Size(max = 100, message = &quot;El nombre no puede tener más de 100 caracteres&quot;)
+    private String nombre;
+
+    @Column(name = &quot;descripcion&quot;, nullable = false, length = 1000)
+    @NotBlank(message = &quot;La descripción no puede estar vacía&quot;)
+    @Size(max = 1000, message = &quot;La descripción no puede tener más de 1000 caracteres&quot;)
+    private String descripcion;
+
+    @Column(name = &quot;precio&quot;, nullable = false)
+    @NotNull(message = &quot;El precio no puede ser nulo&quot;)
+    @Positive(message = &quot;El precio debe ser un valor positivo&quot;)
+    private Double precio;
+
+    @Column(name = &quot;stock&quot;, nullable = false)
+    @NotNull(message = &quot;El stock no puede ser nulo&quot;)
+    @Min(value = 0, message = &quot;El stock no puede ser negativo&quot;)
+    private Integer stock;
+
+    @Column(name = &quot;categoria&quot;, nullable = false)
+    @NotBlank(message = &quot;La categoría no puede estar vacía&quot;)
+    @Size(max = 100, message = &quot;La categoría no puede tener más de 100 caracteres&quot;)
+    private String categoria;
+
+    @Column(name = &quot;fecha_creacion&quot;, nullable = false)
+    private LocalDate fechaCreacion;
+
+    @Column(name = &quot;fecha_modificacion&quot;)
+    private LocalDate fechaModificacion;
+
+    @Column(name = &quot;estado&quot;, nullable = false)
+    @NotBlank(message = &quot;El estado no puede estar vacío&quot;)
+    private String estado;
+
+    @Column(name = &quot;imagen_url&quot;, length = 200)
+    private String imagenUrl;
+
+    // Constructor vacío para JPA
+<span class="fc" id="L60">    public Producto() {</span>
+<span class="fc" id="L61">    }</span>
+
+    // Constructor con parámetros
+    public Producto(String nombre, String descripcion, Double precio, Integer stock, String categoria,
+<span class="fc" id="L65">            LocalDate fechaCreacion, String estado, String imagenUrl) {</span>
+<span class="fc" id="L66">        this.nombre = nombre;</span>
+<span class="fc" id="L67">        this.descripcion = descripcion;</span>
+<span class="fc" id="L68">        this.precio = precio;</span>
+<span class="fc" id="L69">        this.stock = stock;</span>
+<span class="fc" id="L70">        this.categoria = categoria;</span>
+<span class="fc" id="L71">        this.fechaCreacion = fechaCreacion;</span>
+<span class="fc" id="L72">        this.estado = estado;</span>
+<span class="fc" id="L73">        this.imagenUrl = imagenUrl;</span>
+<span class="fc" id="L74">    }</span>
+
+    // Getters y Setters
+    public Long getIdProducto() {
+<span class="fc" id="L78">        return idProducto;</span>
+    }
+
+    public void setIdProducto(Long idProducto) {
+<span class="fc" id="L82">        this.idProducto = idProducto;</span>
+<span class="fc" id="L83">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L86">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L90">        this.nombre = nombre;</span>
+<span class="fc" id="L91">    }</span>
+
+    public String getDescripcion() {
+<span class="fc" id="L94">        return descripcion;</span>
+    }
+
+    public void setDescripcion(String descripcion) {
+<span class="nc" id="L98">        this.descripcion = descripcion;</span>
+<span class="nc" id="L99">    }</span>
+
+    public Double getPrecio() {
+<span class="fc" id="L102">        return precio;</span>
+    }
+
+    public void setPrecio(Double precio) {
+<span class="fc" id="L106">        this.precio = precio;</span>
+<span class="fc" id="L107">    }</span>
+
+    public Integer getStock() {
+<span class="fc" id="L110">        return stock;</span>
+    }
+
+    public void setStock(Integer stock) {
+<span class="fc" id="L114">        this.stock = stock;</span>
+<span class="fc" id="L115">    }</span>
+
+    public String getCategoria() {
+<span class="fc" id="L118">        return categoria;</span>
+    }
+
+    public void setCategoria(String categoria) {
+<span class="fc" id="L122">        this.categoria = categoria;</span>
+<span class="fc" id="L123">    }</span>
+
+    public LocalDate getFechaCreacion() {
+<span class="fc" id="L126">        return fechaCreacion;</span>
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+<span class="nc" id="L130">        this.fechaCreacion = fechaCreacion;</span>
+<span class="nc" id="L131">    }</span>
+
+    public LocalDate getFechaModificacion() {
+<span class="nc" id="L134">        return fechaModificacion;</span>
+    }
+
+    public void setFechaModificacion(LocalDate fechaModificacion) {
+<span class="nc" id="L138">        this.fechaModificacion = fechaModificacion;</span>
+<span class="nc" id="L139">    }</span>
+
+    public String getEstado() {
+<span class="fc" id="L142">        return estado;</span>
+    }
+
+    public void setEstado(String estado) {
+<span class="nc" id="L146">        this.estado = estado;</span>
+<span class="nc" id="L147">    }</span>
+
+    public String getImagenUrl() {
+<span class="fc" id="L150">        return imagenUrl;</span>
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+<span class="nc" id="L154">        this.imagenUrl = imagenUrl;</span>
+<span class="nc" id="L155">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

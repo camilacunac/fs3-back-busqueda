@@ -1,0 +1,14 @@
+com\example\config\CorsConfig.class
+com\example\model\Response.class
+com\example\repository\ProductoRepository.class
+com\example\config\GlobalExceptionHandler.class
+com\example\repository\CompraRepository.class
+com\example\model\Producto.class
+com\example\repository\DetalleCompraRepository.class
+com\example\service\BusquedaServiceImpl.class
+com\example\service\BusquedaService.class
+com\example\controller\BusquedaController.class
+com\example\model\Compra.class
+com\example\App.class
+com\example\model\DetalleCompra.class
+com\example\config\CorsConfig$1.class

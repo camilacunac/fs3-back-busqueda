@@ -1,0 +1,3 @@
+com\example\AppTest.class
+com\example\controller\BusquedaControllerTest.class
+com\example\service\BusquedaServiceImplTest.class

@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+busqueda,com.example.model,DetalleCompra,34,35,0,0,11,16,4,10,4,10
+busqueda,com.example.model,Producto,23,77,0,0,11,31,6,16,6,16
+busqueda,com.example.model,Response,0,36,0,0,0,16,0,8,0,8
+busqueda,com.example.model,Compra,15,45,0,0,6,20,1,13,1,13
+busqueda,com.example,App,0,8,0,0,0,3,0,2,0,2
+busqueda,com.example.controller,BusquedaController,5,48,0,4,1,11,1,6,1,4
+busqueda,com.example.service,BusquedaServiceImpl,43,212,2,10,8,41,3,11,2,6
+busqueda,com.example.config,CorsConfig.new WebMvcConfigurer() {...},0,50,0,0,0,7,0,2,0,2
+busqueda,com.example.config,CorsConfig,0,8,0,0,0,2,0,2,0,2
+busqueda,com.example.config,GlobalExceptionHandler,0,16,0,0,0,3,0,2,0,2
